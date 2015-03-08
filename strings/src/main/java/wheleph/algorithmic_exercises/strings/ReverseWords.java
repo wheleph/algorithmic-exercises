@@ -13,35 +13,35 @@ public class ReverseWords {
             return null;
         }
 
+        char[] charArray = input.toCharArray();
+
         // reverse entire string (each word is going to be reversed)
-        char[] reversedCharArray = reverse(input.toCharArray(), 0, input.length() - 1);
+        reverse(charArray, 0, input.length() - 1);
 
         // reverse each word again to make it correct
         int beginWordIndex = 0;
-        for (int i = 0; i < reversedCharArray.length; i++) {
-            if (reversedCharArray[i] == ' ') {
-                reverse(reversedCharArray, beginWordIndex, i - 1);
+        for (int i = 0; i < charArray.length; i++) {
+            if (charArray[i] == ' ') {
+                reverse(charArray, beginWordIndex, i - 1);
                 beginWordIndex = i + 1;
             }
 
-            if (beginWordIndex > 0 && i == reversedCharArray.length - 1) {
-                reverse(reversedCharArray, beginWordIndex, i);
+            if (beginWordIndex > 0 && i == charArray.length - 1) {
+                reverse(charArray, beginWordIndex, i);
             }
         }
 
-        return new String(reversedCharArray);
+        return new String(charArray);
     }
 
-    private static char[] reverse(char[] input, int beginIndex, int endIndex) {
+    private static void reverse(char[] charArray, int beginIndex, int endIndex) {
         int len = endIndex - beginIndex + 1;
 
         for (int i = beginIndex; i < beginIndex + len / 2; i++) {
             int j = endIndex - (i - beginIndex);
-            char temp = input[i];
-            input[i] = input[j];
-            input[j] = temp;
+            char temp = charArray[i];
+            charArray[i] = charArray[j];
+            charArray[j] = temp;
         }
-
-        return input;
     }
 }
