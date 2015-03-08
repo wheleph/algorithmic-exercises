@@ -15,6 +15,7 @@
 
     <modules>
         <module>strings</module>
+        <module>concurrency</module>
     </modules>
 
     <dependencies>
