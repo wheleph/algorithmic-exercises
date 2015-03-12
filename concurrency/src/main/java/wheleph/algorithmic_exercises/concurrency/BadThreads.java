@@ -9,8 +9,7 @@ public class BadThreads {
 
     static String message;
 
-    private static class CorrectorThread
-            extends Thread {
+    private static class CorrectorThread extends Thread {
 
         public void run() {
             try {
@@ -23,8 +22,7 @@ public class BadThreads {
         }
     }
 
-    public static void main(String args[])
-            throws InterruptedException {
+    public static void main(String args[]) throws InterruptedException {
 
         (new CorrectorThread()).start();
         message = "Mares do not eat oats.";
