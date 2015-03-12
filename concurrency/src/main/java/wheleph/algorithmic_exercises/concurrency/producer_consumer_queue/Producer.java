@@ -19,13 +19,13 @@ public class Producer implements Runnable {
         };
         Random random = new Random();
 
-        for (int i = 0; i < importantInfo.length; i++) {
-            processingQueue.add(importantInfo[i]);
-            try {
+        try {
+            for (int i = 0; i < importantInfo.length; i++) {
+                processingQueue.put(importantInfo[i]);
                 Thread.sleep(random.nextInt(5000));
-            } catch (InterruptedException e) {
             }
+            processingQueue.put("DONE");
+        } catch (InterruptedException e) {
         }
-        processingQueue.add("DONE");
     }
 }
