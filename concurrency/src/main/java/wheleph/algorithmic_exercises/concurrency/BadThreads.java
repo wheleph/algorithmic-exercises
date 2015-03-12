@@ -23,10 +23,13 @@ public class BadThreads {
     }
 
     public static void main(String args[]) throws InterruptedException {
+        CorrectorThread correctorThread = new CorrectorThread();
+        correctorThread.start();
 
-        (new CorrectorThread()).start();
         message = "Mares do not eat oats.";
         Thread.sleep(2000);
+
+        correctorThread.join();
 
         // Key statement 2:
         System.out.println(message);
